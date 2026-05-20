@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BaronTech — Full Stack Developer crafting modern web and mobile experiences." />
+  <meta property="og:title" content="BaronTech | Full Stack Developer" />
+  <meta property="og:description" content="Crafting modern web & mobile experiences." />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <title>BaronTech | Full Stack Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ░░ NAV ░░ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo">Baron<span>Tech</span></a>
+      <nav class="nav__links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="assets/docs/josh-cv.pdf" download class="nav__cta">
+        <i class="fa-solid fa-download"></i> Resume
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- mobile menu -->
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#about" class="nav__mobile-link">About</a>
+      <a href="#skills" class="nav__mobile-link">Skills</a>
+      <a href="#projects" class="nav__mobile-link">Projects</a>
+      <a href="#contact" class="nav__mobile-link">Contact</a>
+      <a href="assets/docs/josh-cv.pdf" download class="nav__mobile-link nav__mobile-cta">Download Resume</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ░░ HERO ░░ -->
+    <section class="hero" id="home">
+      <div class="hero__bg-text" aria-hidden="true">FULLSTACK</div>
+      <div class="hero__container">
+        <div class="hero__content reveal">
+          <span class="hero__tag"><i class="fa-solid fa-circle-dot"></i> Available for hire</span>
+          <h1 class="hero__name">
+            Baron<br /><em>Tech</em>
+          </h1>
+          <p class="hero__role">Full Stack Developer</p>
+          <p class="hero__desc">
+            I build end-to-end digital products — clean frontends, scalable backends, and everything in between. Based in Accra, building for the world.
+          </p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn--ghost">Let's Talk</a>
+          </div>
+        </div>
+        <div class="hero__visual reveal reveal--delay">
+          <div class="hero__image-wrap">
+            <img src="assets/images/profile.jpg" alt="Josh Baron" class="hero__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+            <div class="hero__photo-placeholder">BT</div>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <strong>3+</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <strong>15+</strong>
+              <span>Projects Shipped</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <strong>8+</strong>
+              <span>Technologies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-hint">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ░░ ABOUT ░░ -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section__label reveal"><i class="fa-solid fa-user-tie"></i> About Me</div>
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <h2 class="section__heading">I turn ideas into<br /><em>working products.</em></h2>
+            <p>
+              I'm a full stack developer operating under <strong>BaronTech</strong> and <strong>KUKUNAKAM STUDIOS</strong> — building software that solves real problems for real people, particularly within Ghanaian markets and beyond.
+            </p>
+            <p>
+              From mobile apps to web platforms, I handle the full lifecycle: architecture, development, deployment, and iteration. I bring product thinking to every line of code.
+            </p>
+            <div class="about__links">
+              <a href="https://github.com" target="_blank" rel="noopener" class="about__social">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="about__social">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener" class="about__social">
+                <i class="fa-brands fa-x-twitter"></i> Twitter
+              </a>
+            </div>
+          </div>
+          <div class="about__services reveal reveal--delay">
+            <div class="service-row">
+              <div class="service-row__icon"><i class="fa-solid fa-layer-group"></i></div>
+              <div class="service-row__text">
+                <strong>Full Stack Web Development</strong>
+                <span>React, Node.js, PostgreSQL, REST & GraphQL APIs</span>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-row__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+              <div class="service-row__text">
+                <strong>Mobile Development</strong>
+                <span>Flutter, cross-platform iOS & Android apps</span>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-row__icon"><i class="fa-solid fa-brain"></i></div>
+              <div class="service-row__text">
+                <strong>AI Integration</strong>
+                <span>LLM integration, Gemini AI, intelligent product features</span>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-row__icon"><i class="fa-solid fa-server"></i></div>
+              <div class="service-row__text">
+                <strong>Backend & DevOps</strong>
+                <span>Express, Socket.IO, cloud deployment, CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SKILLS ░░ -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section__label reveal"><i class="fa-solid fa-code"></i> Tech Stack</div>
+        <h2 class="section__heading reveal">Tools I work with</h2>
+
+        <div class="skills__categories reveal">
+
+          <div class="skills__category">
+            <h3><i class="fa-solid fa-display"></i> Frontend</h3>
+            <div class="skills__list">
+              <div class="skill-item"><i class="fa-brands fa-react"></i><span>React</span></div>
+              <div class="skill-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+              <div class="skill-item"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+              <div class="skill-item"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+            </div>
+          </div>
+
+          <div class="skills__divider"></div>
+
+          <div class="skills__category">
+            <h3><i class="fa-solid fa-server"></i> Backend</h3>
+            <div class="skills__list">
+              <div class="skill-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+              <div class="skill-item"><i class="fa-solid fa-bolt"></i><span>Express</span></div>
+              <div class="skill-item"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
+              <div class="skill-item"><i class="fa-solid fa-plug"></i><span>Socket.IO</span></div>
+            </div>
+          </div>
+
+          <div class="skills__divider"></div>
+
+          <div class="skills__category">
+            <h3><i class="fa-solid fa-mobile-screen-button"></i> Mobile & AI</h3>
+            <div class="skills__list">
+              <div class="skill-item"><i class="fa-solid fa-feather"></i><span>Flutter</span></div>
+              <div class="skill-item"><i class="fa-solid fa-brain"></i><span>Gemini AI</span></div>
+              <div class="skill-item"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+              <div class="skill-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ PROJECTS ░░ -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section__label reveal"><i class="fa-solid fa-briefcase"></i> Work</div>
+        <div class="projects__header reveal">
+          <h2 class="section__heading">Selected Projects</h2>
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
+            All on GitHub <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+
+        <div class="projects__list">
+
+          <article class="project-item reveal">
+            <div class="project-item__meta">
+              <span class="project-item__tag">Mobile · AI · Education</span>
+              <span class="project-item__year">2024</span>
+            </div>
+            <div class="project-item__body">
+              <h3>NSMQ Prep Hub</h3>
+              <p>AI-powered quiz prep mobile app for Ghanaian SHS students preparing for the National Science & Maths Quiz. Features real-time tournaments, leaderboards, and Google Gemini AI integration.</p>
+              <div class="project-item__stack">
+                <span>Flutter</span><span>Node.js</span><span>PostgreSQL</span><span>Gemini AI</span><span>Socket.IO</span>
+              </div>
+            </div>
+            <div class="project-item__actions">
+              <a href="#" class="project-item__link"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="project-item__link project-item__link--primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+            </div>
+          </article>
+
+          <article class="project-item reveal">
+            <div class="project-item__meta">
+              <span class="project-item__tag">Web · Music · Platform</span>
+              <span class="project-item__year">2024</span>
+            </div>
+            <div class="project-item__body">
+              <h3>Music Hub</h3>
+              <p>A music platform under KUKUNAKAM STUDIOS connecting artists and producers. Features beat licensing, song requests, studio booking, subscription tiers, and payment processing.</p>
+              <div class="project-item__stack">
+                <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Stripe</span>
+              </div>
+            </div>
+            <div class="project-item__actions">
+              <a href="#" class="project-item__link"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="project-item__link project-item__link--primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+            </div>
+          </article>
+
+          <article class="project-item reveal">
+            <div class="project-item__meta">
+              <span class="project-item__tag">Web · SaaS · Dashboard</span>
+              <span class="project-item__year">2023</span>
+            </div>
+            <div class="project-item__body">
+              <h3>Project Three</h3>
+              <p>Replace with your project description. Highlight the problem it solves, the stack used, and the impact delivered. Keep it concise and outcomes-focused.</p>
+              <div class="project-item__stack">
+                <span>React</span><span>Express</span><span>MongoDB</span>
+              </div>
+            </div>
+            <div class="project-item__actions">
+              <a href="#" class="project-item__link"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="project-item__link project-item__link--primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ CONTACT ░░ -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section__label reveal"><i class="fa-solid fa-paper-plane"></i> Contact</div>
+        <div class="contact__grid">
+          <div class="contact__left reveal">
+            <h2 class="section__heading">Let's build<br /><em>something great.</em></h2>
+            <p>Have a project in mind or just want to talk tech? I'm currently open to freelance work and full-time opportunities.</p>
+            <div class="contact__details">
+              <a href="mailto:hello@barontech.dev" class="contact__detail">
+                <i class="fa-solid fa-envelope"></i>
+                <span>hello@barontech.dev</span>
+              </a>
+              <a href="https://wa.me/233000000000" target="_blank" rel="noopener" class="contact__detail">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact__detail">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact__right reveal reveal--delay">
+            <form class="contact__form" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required />
+                <span class="form-error" id="nameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                <span class="form-error" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project Inquiry" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                <span class="form-error" id="messageError"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                <span id="btnText">Send Message <i class="fa-solid fa-paper-plane"></i></span>
+                <span id="btnLoading" style="display:none"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
+              </button>
+              <div class="form-success" id="formSuccess">
+                <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="nav__logo">Baron<span>Tech</span></span>
+        <p>Built with precision in Accra, Ghana &nbsp;🇬🇭</p>
+        <span class="footer__copy">&copy; <span id="year"></span> BaronTech. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

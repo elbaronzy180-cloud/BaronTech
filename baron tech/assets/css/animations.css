@@ -1,0 +1,128 @@
+/* =============================================
+   BARONTECH — animations.css
+   Scroll reveal · Entrance transitions
+   ============================================= */
+
+/* ── REVEAL BASE ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal--delay {
+  transition-delay: 0.18s;
+}
+
+.reveal--delay-2 {
+  transition-delay: 0.32s;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── HERO ENTRANCE (fires on load, not scroll) ── */
+.hero__content {
+  animation: heroSlideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.hero__visual {
+  animation: heroSlideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── SCROLL LINE ANIMATION ── */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInUp 1.2s 1s forwards;
+  opacity: 0;
+}
+
+.hero__scroll-hint span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--gold-mid), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  50%       { opacity: 0.4; transform: scaleY(0.6); transform-origin: top; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── SKILL ITEM STAGGER ── */
+.skill-item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              background var(--transition), color var(--transition);
+}
+
+.skill-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── PROJECT ITEM SLIDE ── */
+.project-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, background var(--transition);
+}
+
+.project-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── NAV ACTIVE LINK ── */
+.nav__links a.active {
+  color: var(--text);
+}
+.nav__links a.active::after {
+  width: 100%;
+}
+
+/* ── PAGE LOAD FADE ── */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body {
+  animation: pageFadeIn 0.4s ease forwards;
+}
