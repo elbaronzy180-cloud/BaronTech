@@ -52,7 +52,7 @@ button { cursor: none; font-family: var(--font-body); }
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s, background 0.3s;
+  transition: transform 0.01s, background 0.01s;
 }
 .cursor-follower {
   width: 32px; height: 32px;
