@@ -3,6 +3,13 @@
    Nav · Cursor · Active links · Footer year
    ============================================= */
 
+  //Pop up message for the new release of one of my project: NSMQ Prep Hub
+  document.getElementsByClassName('pop-up-message')[0].style.display = 'block';
+  setTimeout(function() {
+    document.getElementsByClassName('pop-up-message')[0].style.display = 'none';
+  }, 10000); // Hide after 10 seconds
+
+
 (function () {
   'use strict';
 
