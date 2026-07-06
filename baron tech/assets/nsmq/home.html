@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSMQ Prep Hub — Ghana's #1 Science & Maths Quiz App</title>
+    <meta name="description" content="The only app built for Ghanaian SHS students serious about winning the National Science & Maths Quiz. AI-powered practice, speed math battles, and 12,000+ past questions.">
+
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="b2jeHUAAVDstYp8usn50nYQy_9Y95WowqLnXuERKxD8" />
+    <meta name="keywords" content="NSMQ, NSMQ Prep Hub, NSMQ App, National Science and Maths Quiz, Ghana SHS, Science and Maths Quiz, NSMQ Practice, NSMQ Questions, NSMQ Past Questions, NSMQ AI Coach, NSMQ Speed Math, NSMQ Reference Library">
+    <meta name="description" content="The app built for Ghanaian SHS students serious about winning the National Science & Maths Quiz. AI-powered practice, speed math battles, and 12,000+ past questions.">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep:    #0d1b24;
+            --bg-mid:     #1c3c3a;
+            --bg-light:   #688366;
+            --gold:       #c9aa62;
+            --gold-dim:   rgba(226, 193, 117, 0.18);
+            --gold-border:rgba(226, 193, 117, 0.3);
+            --white:      #ffffff;
+            --muted:      rgba(255,255,255,0.65);
+            --card-bg:    rgba(13, 27, 36, 0.55);
+            --radius:     14px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(ellipse at 50% 90%, var(--bg-light) 0%, var(--bg-mid) 40%, var(--bg-deep) 100%);
+            background-color: var(--bg-deep);
+            color: var(--white);
+            line-height: 1.65;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 40px;
+            background: rgba(13, 27, 36, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+        .nav-brand span {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.2px;
+        }
+        .nav-dl {
+            background: var(--gold);
+            color: var(--bg-deep);
+            padding: 8px 22px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav-dl:hover { opacity: 0.88; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 60px;
+            position: relative;
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-dim);
+            border: 1px solid var(--gold-border);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .hero-eyebrow span { font-size: 14px; }
+
+        .app-logo-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--gold-border);
+            box-shadow: 0 8px 32px rgba(226,193,117,0.2);
+            margin: 0 auto 24px;
+        }
+        .app-logo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(36px, 6vw, 60px);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold);
+            color: var(--bg-deep);
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 24px rgba(226,193,117,0.3);
+        }
+        .btn-primary:hover {
+            background: #d4b368;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(226,193,117,0.4);
+        }
+        .btn-primary svg { width: 18px; height: 18px; }
+
+        .download-note {
+            font-size: 12px;
+            color: var(--muted);
+            opacity: 0.7;
+        }
+
+        /* ── STATS STRIP ── */
+        .stats-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 32px 24px;
+            background: rgba(13, 27, 36, 0.5);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-family: 'Lora', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gold);
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .stat-divider {
+            width: 1px;
+            height: 36px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+        .section-intro {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 560px;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        /* ── FEATURES GRID ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            backdrop-filter: blur(8px);
+            transition: border-color 0.2s;
+        }
+        .feat-card:hover { border-color: var(--gold-border); }
+        .feat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gold-dim);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+        .feat-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .feat-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        .feat-card p {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── HERO IMAGE SECTION ── */
+        .visual-section {
+            text-align: center;
+            padding: 0 24px 80px;
+        }
+        .visual-section img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+
+        /* ── QUOTE BLOCK ── */
+        .quote-block {
+            max-width: 680px;
+            margin: 0 auto 80px;
+            padding: 32px 36px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.08);;
+            border-radius: var(--radius);
+            backdrop-filter: blur(8px);
+            text-align: left;
+        }
+        .quote-block p {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--white);
+            opacity: 0.9;
+        }
+        .quote-block cite {
+            display: block;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--gold);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── DOWNLOAD CTA SECTION ── */
+        .cta-section {
+            text-align: center;
+            padding: 80px 24px;
+            background: rgba(13,27,36,0.6);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+        }
+        .cta-section h2 { margin-bottom: 14px; }
+        .cta-section p { color: var(--muted); font-size: 16px; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+        /* How to Install steps */
+        .install-steps {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            margin: 48px auto 0;
+            max-width: 700px;
+        }
+        .install-step {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            padding: 0 16px;
+            position: relative;
+        }
+        .install-step::after {
+            content: '→';
+            position: absolute;
+            right: -6px;
+            top: 18px;
+            color: var(--gold);
+            opacity: 0.5;
+            font-size: 18px;
+        }
+        .install-step:last-child::after { display: none; }
+        .step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold-dim);
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+        .install-step p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 28px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12.5px;
+            color: var(--muted);
+            opacity: 0.7;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 720px) {
+            nav { padding: 14px 20px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .stats-strip { gap: 20px; }
+            .stat-divider { display: none; }
+            .install-steps { flex-direction: column; align-items: center; }
+            .install-step::after { display: none; }
+            .quote-block { padding: 24px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <img src="icon.png" alt="NSMQ Prep Hub">
+            <span>NSMQ Prep Hub</span>
+        </a>
+        <!-- Replace YOUR_APK_LINK with your Cloudflare R2 public URL -->
+        <a href="https://www.dropbox.com/scl/fi/72p9ebzlqegmobyvkcekv/NSMQ-Prep-Hub.apk?rlkey=r6fnd3dmekahlamdkzh8gf0gl&st=2jletkw2&dl=1" download class="nav-dl">Download APK</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- <div class="hero-eyebrow">
+            <span>🇬</span> Built for Ghana SHS Students
+        </div> -->
+        <div class="app-logo-wrap">
+            <img src="icon.png" alt="NSMQ Prep Hub">
+        </div>
+        <h1>Train smarter.<br><em>Win the NSMQ.</em></h1>
+        <p class="hero-sub">
+            AI-powered practice, speed math battles, and a comprehensive reference library — all in one app built for the National Science &amp; Maths Quiz.
+        </p>
+        <div class="hero-actions">
+            <!-- Replace YOUR_APK_LINK with your Cloudflare R2 public URL -->
+            <a href="https://www.dropbox.com/scl/fi/72p9ebzlqegmobyvkcekv/NSMQ-Prep-Hub.apk?rlkey=r6fnd3dmekahlamdkzh8gf0gl&st=2jletkw2&dl=1" download class="btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download for Android (.apk)
+            </a>
+            <span class="download-note">Free to download · Android 8.0 and above</span>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+        <div class="stat">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">Features</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <span class="stat-num">4</span>
+            <span class="stat-label">NSMQ Subjects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <span class="stat-num">AI</span>
+            <span class="stat-label">Powered Coach</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <span class="stat-num">Live</span>
+            <span class="stat-label">Multiplayer Battles</span>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section">
+        <span class="section-label">What's inside</span>
+        <h2>Everything you need to<br>compete at the top level</h2>
+        <p class="section-intro">NSMQ Prep Hub is built around how the competition actually works — not generic quiz-style cramming.</p>
+
+        <div class="features-grid">
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <h3>Speed Math Arena</h3>
+                <p>Timed challenges, combo streaks, and 1v1 multiplayer battles to sharpen your mental arithmetic under pressure.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44l-3.13-8.5A2.5 2.5 0 0 1 6.24 7.5H9.5V2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44l3.13-8.5a2.5 2.5 0 0 0-2.33-2.56H14.5V2Z"/></svg>
+                </div>
+                <h3>EduBot AI Coach</h3>
+                <p>Ask any science or maths question and get NSMQ-standard explanations, step-by-step solutions, and riddles set on demand.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Practice Rounds</h3>
+                <p>Drill the four official NSMQ rounds: Fundamentals, Speed Race, True or False, and Progressive Riddles — read aloud by AI.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+                </div>
+                <h3>School Leaderboards</h3>
+                <p>See how your school ranks against others. Compete in weekly tournaments and climb the national standings.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <h3>Reference Library</h3>
+                <p>Access a comprehensive collection of science and math resources, including definitions, formulas, and tricks.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Progress Analytics</h3>
+                <p>Track your accuracy, speed, and weak areas by topic. See your XP level rise as you improve across all subjects.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="visual-section">
+        <img src="onboarding-hero.png" alt="Three Ghanaian students raising their hands with science symbols">
+    </div>
+
+    <!-- QUOTE -->
+    <div style="padding: 0 24px;">
+        <div class="quote-block" style="margin: 0 auto 80px;">
+            <p>"The NSMQ isn't just a quiz — it's a test of speed, depth, and confidence under pressure. NSMQ Prep Hub trains all three."</p>
+            <cite>— Built by El Baronn · Powered by NSMQ Prep Hub</cite>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD CTA -->
+    <section class="cta-section">
+        <span class="section-label">Get started today</span>
+        <h2>Download the app.<br>Start preparing.</h2>
+        <p>Free to download. No sign-up required to explore. Your first practice session takes under 2 minutes to begin.</p>
+        <a href="https://www.dropbox.com/scl/fi/72p9ebzlqegmobyvkcekv/NSMQ-Prep-Hub.apk?rlkey=r6fnd3dmekahlamdkzh8gf0gl&st=2jletkw2&dl=1" download class="btn-primary" style="margin: 0 auto; display: inline-flex;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download NSMQ Prep Hub (.apk)
+        </a>
+
+        <div class="install-steps">
+            <div class="install-step">
+                <div class="step-num">1</div>
+                <p>Tap the button above to download the APK file</p>
+            </div>
+            <div class="install-step">
+                <div class="step-num">2</div>
+                <p>Open your Downloads folder and tap the file</p>
+            </div>
+            <div class="install-step">
+                <div class="step-num">3</div>
+                <p>Allow "Install from unknown sources" if prompted</p>
+            </div>
+            <div class="install-step">
+                <div class="step-num">4</div>
+                <p>Install and launch — you're ready to compete</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 NSMQ Prep Hub &middot; Built by El Baronn &middot; For Ghana SHS Students</p>
+    </footer>
+
+</body>
+</html>
