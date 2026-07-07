@@ -405,9 +405,32 @@
             .install-step::after { display: none; }
             .quote-block { padding: 24px 22px; }
         }
+
+        #video{
+            display: flex;
+            position: relative;
+            top: 3px;
+            right: 8px;
+            width: 100%;
+            margin: 20px 20px 0px 20px;
+            border-radius: 20px;
+            border: #0d1b24 2px solid;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.4);
+
+        }
     </style>
 </head>
 <body>
+
+    <video 
+        loop 
+        muted 
+        autoplay
+        width="350px"
+        height="350px"
+        id="video">
+        <source src="NSMQQQ 2.mp4" type="video/mp4">
+    </video>
 
     <!-- NAV -->
     <nav>
